@@ -42,7 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Axe.cs" />
     <Compile Include="Classes\Sword.cs" />
+    <Compile Include="Interfaces\IDamageable.cs" />
+    <Compile Include="Interfaces\IEquipeable.cs" />
     <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,9 +2,9 @@
 using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1.Classes {
-    public class Sword : IItem, IDamageable {
+    public class Axe : IItem, IDamageable {
 
-        public Sword(string name, int durability) {
+        public Axe(string name, int durability) {
             Name = name;
             Durability = durability;
             InitialDurability = durability;
@@ -14,7 +14,7 @@ namespace ConsoleApp1.Classes {
 
         public string Name { get; set; }
         public void Equip() {
-            Console.WriteLine($"{Name} a été équipé");
+            Console.WriteLine($"La hache {Name} a bien été équipée");
         }
 
         public int Durability { get; set; }

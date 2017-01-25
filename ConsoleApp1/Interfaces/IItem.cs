@@ -2,6 +2,8 @@
 {
     public interface IItem
     {
-
+        string Name { get; set; }
+        void Equip();
+        string ToString();
     }
 }
