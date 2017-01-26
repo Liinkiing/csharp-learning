@@ -37,7 +37,8 @@ namespace ConsoleApp1.Classes {
         }
 
 
-        public void Equip() {
+        public void Equip(Person person) {
+            person.Items.Add(this);
             OnEquipped(new EquippedEventHandlerArgs(this));
         }
 
