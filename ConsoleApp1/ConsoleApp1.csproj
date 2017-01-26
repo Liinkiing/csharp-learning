@@ -43,7 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Axe.cs" />
+    <Compile Include="Classes\MagicHammer.cs" />
     <Compile Include="Classes\Sword.cs" />
+    <Compile Include="Delegates\Delegate.cs" />
+    <Compile Include="Events\Events.cs" />
     <Compile Include="Interfaces\IDamageable.cs" />
     <Compile Include="Interfaces\IEquipeable.cs" />
     <Compile Include="Interfaces\IItem.cs" />

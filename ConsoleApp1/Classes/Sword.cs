@@ -1,8 +1,18 @@
 ﻿using System;
+using ConsoleApp1.Delegates;
+using ConsoleApp1.Events;
 using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1.Classes {
-    public class Sword : IItem, IDamageable {
+
+
+
+    public class Sword : IItem, IDamageable, IEquipeable {
+
+        public event DamagedEventHandler Damaged;
+
+        public event EquippedEventHandler Equipped;
+
 
         public Sword(string name, int durability) {
             Name = name;
@@ -10,22 +20,34 @@ namespace ConsoleApp1.Classes {
             InitialDurability = durability;
         }
 
-        private int InitialDurability { get; }
+        public int InitialDurability { get; }
 
         public string Name { get; set; }
-        public void Equip() {
-            Console.WriteLine($"{Name} a été équipé");
-        }
+
 
         public int Durability { get; set; }
 
         public void TakeDamage(int amount) {
             Durability -= amount;
-            Console.WriteLine($"{Name} a pris {amount} de dégâts ({Durability}/{InitialDurability}");
+            OnDamaged(new DamagedEventHandlerArgs(amount));
         }
 
         public override string ToString() {
             return $"{Name} ({Durability}/{InitialDurability})";
         }
+
+
+        public void Equip() {
+            OnEquipped(new EquippedEventHandlerArgs(this));
+        }
+
+        protected virtual void OnDamaged(DamagedEventHandlerArgs args) {
+            Damaged?.Invoke(this, args);
+        }
+
+        protected virtual void OnEquipped(EquippedEventHandlerArgs args) {
+            Equipped?.Invoke(this, args);
+        }
     }
+
 }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1
 {
-    class Person : IEquipeable
-    {
+    public class Person {
 
         public int Age { get; set; }
         public string FirstName { get; set; }
@@ -42,10 +37,6 @@ namespace ConsoleApp1
                 }
             }
             return $"{FullName} a {Age} ans. \n Il { (IsMajeur() ? "est" : "n'est pas") } majeur \n La personne a {Items.Count} item(s) dans son inventaire \n {itemsStr}";
-        }
-
-        public void Equip(IItem item) {
-            Items.Add(item);
         }
 
     }
