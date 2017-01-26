@@ -43,8 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Axe.cs" />
+    <Compile Include="Classes\Enemy.cs" />
     <Compile Include="Classes\MagicHammer.cs" />
     <Compile Include="Classes\Sword.cs" />
+    <Compile Include="Classes\TiersType.cs" />
     <Compile Include="Delegates\Delegate.cs" />
     <Compile Include="Events\Events.cs" />
     <Compile Include="Interfaces\IDamageable.cs" />
@@ -58,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

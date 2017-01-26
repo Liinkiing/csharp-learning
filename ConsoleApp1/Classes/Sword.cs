@@ -29,7 +29,7 @@ namespace ConsoleApp1.Classes {
 
         public void TakeDamage(int amount) {
             Durability -= amount;
-            OnDamaged(new DamagedEventHandlerArgs(amount));
+            OnDamaged(new DamagedEventHandlerArgs(amount, null));
         }
 
         public override string ToString() {
@@ -48,6 +48,10 @@ namespace ConsoleApp1.Classes {
 
         protected virtual void OnEquipped(EquippedEventHandlerArgs args) {
             Equipped?.Invoke(this, args);
+        }
+
+        public void Equip() {
+            throw new NotImplementedException();
         }
     }
 

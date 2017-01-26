@@ -19,12 +19,30 @@ namespace ConsoleApp1
         private static void Main(string[] args) {
             var character = CreateCharacter();
             character.Death += CharacterOnDeath;
+            character.Damaged += CharacterOnDamaged;
+
+
             while (true) {
                 Thread.Sleep(1000);
-                if (new Random().Next(0, 100) <= 23) {
+                var chance = new Random().Next(0, 100);
+                if (chance <= 23) {
                     FindWeapon();
                 }
+                else if(chance <=30) {
+                    MeetEnemy(character);
+                }
             }
+        }
+
+        private static void CharacterOnDamaged(object sender, DamagedEventHandlerArgs args) {
+            WriteLine(args.Attacker.Name + " vous a attaque et a inflige " + args.DamageTaken + " degats");
+        }
+
+        private static void MeetEnemy(Person character) {
+            var enemy = new Enemy(new Random().Next(1,5));
+            enemy.MakeDamage(character);
+            WriteLine(character.Health);
+
         }
 
         private static void CharacterOnDeath(object sender, EventArgs args) {
@@ -49,7 +67,7 @@ namespace ConsoleApp1
         }
 
         private static void FindWeapon() {
-            var names = new Dictionary<string, string[]() {
+            var names = new Dictionary<string, string[]>() {
                 {"Swords", new[] {"Excalibur", "Blazefury", "Forsaken Longsword", "Deathraze", "Fireguard Skewer", "Nightfall, Executioner of Stealth"}},
                 {"Axes", new[] {"Valkyrie", "Stalker", "Faithful Ivory Axe", "Orenmir", "Soul Reaper"}}
             };

@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleApp1.Classes;
 using ConsoleApp1.Interfaces;
 
 namespace ConsoleApp1.Events {
@@ -13,8 +14,10 @@ namespace ConsoleApp1.Events {
 
     public class DamagedEventHandlerArgs : EventArgs {
         public int DamageTaken { get; }
+        public Enemy Attacker { get; }
 
-        public DamagedEventHandlerArgs(int damageTaken) {
+        public DamagedEventHandlerArgs(int damageTaken, Enemy attacker) {
+            Attacker = attacker;
             DamageTaken = damageTaken;
         }
     }

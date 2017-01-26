@@ -13,7 +13,6 @@ namespace ConsoleApp1.Classes {
         }
 
         private int InitialDurability { get; }
-
         public string Name { get; set; }
 
         public int Durability { get; set; }
